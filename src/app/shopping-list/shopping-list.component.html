@@ -1,0 +1,18 @@
+
+<div class="row">
+    <div class="col-md-10">
+        <app-shopping-edit> </app-shopping-edit>
+        <hr>
+        <ul class="list-group">
+            <a style="cursor: pointer;" class="list-group-item" *ngFor="let ingrediant of ingrediants">
+                <span appCustomDirective>{{ingrediant.name}} ({{ingrediant.amount}})</span>
+                <!-- <span appCustomBetterDirective [defaultColor]="'yellow'" [highlightedColor]="'red'"  >{{ingrediant.name}} ({{ingrediant.amount}})</span> -->
+               <!-- we can use same directive for property binding and also use without square brakets for defaultcolor -->
+                <span [appCustomBetterDirective]="'red'" defaultColor="yellow"   >{{ingrediant.name}} ({{ingrediant.amount}})</span>
+
+            </a>
+
+
+        </ul>
+    </div>
+</div>

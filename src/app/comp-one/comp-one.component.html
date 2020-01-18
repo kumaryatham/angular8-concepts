@@ -1,0 +1,83 @@
+<div class="alert alert-danger ">
+    <p>comp-one works!</p>
+</div>
+
+<div class="alert alert-success">
+    <h4>Event & Property binding</h4>
+</div>
+<!-- For event binding -->
+<input type="text" class="form-control" (input)="onInput($event)">
+
+<!-- For form binding -->
+<button (click)="onClick($event)" [disabled]="!isDisabled" 
+            class="btn btn-primary"> Start Server </button>
+
+<div class="alert alert-success">
+    <h4>String interpolation</h4>
+</div>
+
+<!-- For String interpolation -->
+<p>{{serverMsg}}</p>
+
+<hr>
+
+
+<div class="alert alert-success">
+    <h4>Two way binding</h4>
+</div>
+<!-- For Two way binding -->
+<p>Your username is {{username}}</p>
+<input type="text" class="form-control" [(ngModel)] = 'username' >
+<button (click)="username=''"  [disabled]="username === ''" class="btn btn-primary" > Reset </button>
+
+<hr>
+
+<!-- For ngIf else -->
+<div class="alert alert-success">
+    <h4>Directives ngIf else</h4>
+</div>
+<button (click)="isTrueField=false"  class="btn btn-primary" > MakeItElse </button>
+<button (click)="isTrueField=true"  class="btn btn-primary" > MakeItTrue </button>
+<div *ngIf="isTrue(); else elseBlock">
+     <h6> Its a if Block </h6>
+</div>
+
+<ng-template #elseBlock>
+    <h6> Its a else Block </h6>
+</ng-template>
+
+<!-- For ngStyle & ngClass -->
+<div class="alert alert-success">
+    <h4>Directives ngStyle & ngClass</h4>
+</div>
+
+<button (click)="divColor='green'"  class="btn btn-primary" > MakeItGreen </button>
+<button (click)="divColor='blue'"  class="btn btn-primary" > MakeItblue </button>
+
+<div [ngStyle]="{ backgroundColor: getColor()}" [ngClass] = "{cssclass : true}">  Changing the style by using ngStyle {{getColor()}}</div>
+
+<!-- For ngFor -->
+<div class="alert alert-success">
+    <h4>Directives ngFor</h4>
+</div>
+
+<button (click)="addMoreDivs()" class="btn btn-primary"> Add More</button>
+<div *ngFor="let element of elements; let i = index">{{i+"  "+element}}</div>
+
+<!-- For parent to child data passing -->
+
+<div class="alert alert-success">
+    <h4>Parent to Child component data pass @input decorator</h4>
+</div>
+
+<app-comp-two (customEvent)="onParentEvent($event)" [parentData]='parentData'></app-comp-two>
+
+<!-- For child to parent data passing -->
+
+
+<div class="alert alert-success">
+    <h4>Child to Parent component data pass @output decorator</h4>
+</div>
+
+<span>{{childData | json}}</span>
+

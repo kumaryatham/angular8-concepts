@@ -27,6 +27,10 @@ export class ShoppingListComponent implements OnInit, OnDestroy {
     this.shoppingListService.addIngrediants(ingrediantsList);
   }
 
+  onEditItem(index : number){
+    this.shoppingListService.startEditing.next(index);
+  }
+
   ngOnDestroy(){
     console.log('Unsubscribe hook called in shopping list')
     this.iGSubscription.unsubscribe();

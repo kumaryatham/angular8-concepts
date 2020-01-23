@@ -18,7 +18,7 @@ const routes: Routes = [
     },
     {
         path: 'samples',
-        component: CompOneComponent
+        component: CompOneComponent,
     },
     {
         path: 'comp2',
@@ -41,15 +41,16 @@ const routes: Routes = [
             {
                 path:'',
                 component : RecipeStartComponent
+            }, 
+            {
+                path: 'new',
+                component : RecipeEditComponent
             },
             {
                 path:':id',
                 component : RecipeDetailComponent
             },
-            {
-                path: 'new',
-                component : RecipeEditComponent
-            },
+           
             {
                 path: ':id/edit',
                 component : RecipeEditComponent
